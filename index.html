@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b12">
+  <title>Lezo-AI — مساعدك الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="auth-screen" id="authScreen" aria-labelledby="authTitle">
+    <div class="auth-card">
+      <div class="auth-brand"><div class="brand-mark"><span class="brand-orbit"></span><span class="brand-core">L</span></div><div class="brand-copy"><strong>Lezo<span>-AI</span></strong><small>YOUR CREATIVE INTELLIGENCE</small></div></div>
+      <div class="auth-glow"></div>
+      <div class="auth-kicker">مساحتك الذكية تبدأ هنا</div>
+      <h1 id="authTitle">أهلًا بعودتك إلى <span>Lezo-AI</span></h1>
+      <p class="auth-subtitle" id="authSubtitle">سجّل دخولك وابدأ محادثة جديدة مع مساعدك الذكي.</p>
+      <div class="auth-tabs"><button type="button" class="auth-tab active" id="loginTab">تسجيل الدخول</button><button type="button" class="auth-tab" id="registerTab">إنشاء حساب</button></div>
+      <form id="authForm" class="auth-form" autocomplete="on">
+        <label id="nameField" class="auth-field hidden" for="authName">الاسم</label>
+        <input id="authName" class="auth-input hidden" name="name" type="text" placeholder="اسمك" minlength="2" maxlength="60" autocomplete="name">
+        <label class="auth-field" for="authEmail">البريد الإلكتروني</label>
+        <input id="authEmail" class="auth-input" name="email" type="email" placeholder="you@example.com" required maxlength="254" autocomplete="email">
+        <label class="auth-field" for="authPassword">كلمة المرور</label>
+        <input id="authPassword" class="auth-input" name="password" type="password" placeholder="8 أحرف على الأقل" required minlength="8" maxlength="128" autocomplete="current-password">
+        <p class="auth-error" id="authError" role="alert"></p>
+        <button class="primary-btn auth-submit" id="authSubmit" type="submit">تسجيل الدخول <span>←</span></button>
+      </form>
+      <p class="auth-footnote"><span>🔒</span> حسابك محمي، ومفتاح الذكاء الاصطناعي لا يظهر في المتصفح.</p>
+    </div>
+  </section>
+  <div class="app-shell auth-locked" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <div class="brand-mark"><span class="brand-orbit"></span><span class="brand-core">L</span></div>
+        <div class="brand-copy"><strong>Lezo<span>-AI</span></strong><small>YOUR CREATIVE INTELLIGENCE</small></div>
+        <button class="icon-btn mobile-close" id="closeSidebar" aria-label="إغلاق القائمة">×</button>
+      </div>
+
+      <button class="new-chat-btn" id="newChat"><span class="plus">＋</span><span>محادثة جديدة</span><kbd>Ctrl K</kbd></button>
+
+      <div class="sidebar-section">
+        <div class="section-label">مساحة العمل</div>
+        <button class="nav-item active" data-view="chat"><span class="nav-icon">✳</span> المحادثة <span class="nav-dot"></span></button>
+        <button class="nav-item" data-view="projects"><span class="nav-icon">▧</span> المشاريع <span class="nav-soon">قريبًا</span></button>
+        <button class="nav-item" data-view="library"><span class="nav-icon">◫</span> مكتبة الملفات <span class="nav-soon">قريبًا</span></button>
+      </div>
+
+      <div class="history-wrap">
+        <div class="history-heading"><span class="section-label">الأخيرة</span><button class="text-btn" id="clearHistory">مسح</button></div>
+        <div id="historyList" class="history-list"><div class="history-empty">محادثاتك الجديدة هتظهر هنا</div></div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-indicator"></span><div><strong>Lezo-AI متصل</strong><small>محادثة ذكية عبر OpenRouter</small></div></div>
+        <button class="profile-row" id="profileButton">
+          <div class="avatar" id="profileAvatar">L</div><div class="profile-text"><strong id="profileName">حسابي</strong><small id="profileEmail">المساحة الشخصية</small></div><span class="more">•••</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="mobile-scrim" id="scrim"></div>
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-toggle" id="openSidebar" aria-label="فتح القائمة">☰</button>
+          <div class="model-picker"><span class="model-symbol">✳</span><strong>Lezo-AI</strong><span class="beta-tag">PREVIEW</span><span class="chevron">⌄</span></div>
+        </div>
+        <div class="topbar-actions">
+          <button class="top-action" id="appearanceBtn"><span>◐</span><span class="action-label">المظهر</span></button>
+          <button class="top-action" id="shareBtn"><span>↗</span><span class="action-label">مشاركة</span></button>
+          <button class="top-avatar" id="logoutButton" title="تسجيل الخروج" aria-label="تسجيل الخروج">L</button>
+        </div>
+      </header>
+
+      <section class="chat-scroll" id="chatScroll">
+        <div class="welcome" id="welcome">
+          <div class="welcome-emblem"><div class="emblem-ring ring-one"></div><div class="emblem-ring ring-two"></div><div class="emblem-star">✳</div><div class="emblem-glow"></div></div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> مساحة أفكارك تبدأ هنا <span class="eyebrow-line"></span></div>
+          <h1>أهلًا بك في <span>Lezo-AI</span></h1>
+          <p class="welcome-description">واجهة ذكية لأفكار كبيرة. اكتب فكرتك، رتّب ملفاتك، وجهّز مساحة عملك — كل شيء في مكان واحد.</p>
+          <div class="preview-note"><span class="note-icon">✳</span><span><strong>جاهز للمساعدة</strong> — اكتب سؤالك أو اطلب كودًا، وسيجيبك Lezo-AI عبر النموذج المتصل.</span></div>
+          <div class="suggestion-grid">
+            <button class="suggestion-card" data-prompt="ساعدني في تنظيم فكرة مشروع برمجي"><span class="suggestion-icon violet">⌘</span><span><strong>نظّم فكرة مشروع</strong><small>حوّل الفكرة إلى خطوات واضحة</small></span><span class="suggestion-arrow">↙</span></button>
+            <button class="suggestion-card" data-prompt="اكتب لي خطة لتطوير لعبة"><span class="suggestion-icon cyan">◇</span><span><strong>طوّر لعبة</strong><small>ابدأ من الفكرة إلى النموذج الأولي</small></span><span class="suggestion-arrow">↙</span></button>
+            <button class="suggestion-card" data-prompt="راجع بنية ملفاتي البرمجية"><span class="suggestion-icon blue">▤</span><span><strong>راجع ملفات المشروع</strong><small>جهّز ملفاتك للعمل عليها لاحقًا</small></span><span class="suggestion-arrow">↙</span></button>
+            <button class="suggestion-card" data-prompt="اقترح لي أفكارًا إبداعية جديدة"><span class="suggestion-icon amber">✧</span><span><strong>اكتشف أفكارًا جديدة</strong><small>افتح مساحة للإبداع والتجربة</small></span><span class="suggestion-arrow">↙</span></button>
+          </div>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+
+      <footer class="composer-area">
+        <div class="composer" id="composer">
+          <textarea id="promptInput" rows="1" placeholder="اكتب رسالتك إلى Lezo-AI..." aria-label="اكتب رسالتك"></textarea>
+          <div class="composer-tools">
+            <div class="tool-group">
+              <button class="tool-btn" id="attachBtn" title="إرفاق ملف"><span>＋</span><span class="tool-label">إرفاق</span></button>
+              <input type="file" id="fileInput" hidden multiple accept=".txt,.md,.json,.js,.py,.html,.css,.csv,.xml,.yml,.yaml">
+              <button class="tool-btn" id="modeBtn" title="وضع الكتابة"><span>⌘</span><span class="tool-label">وضع الكتابة</span></button>
+            </div>
+            <div class="send-group"><span class="char-count" id="charCount">0 / 4000</span><button class="send-btn" id="sendBtn" aria-label="إرسال الرسالة" title="إرسال الرسالة إلى Lezo-AI">↑</button></div>
+          </div>
+          <div class="attachment-list" id="attachmentList"></div>
+        </div>
+        <div class="composer-caption"><span class="tiny-lock">♧</span> تُرسل رسالتك إلى نموذج الذكاء الاصطناعي للإجابة عليها <span class="caption-separator">•</span> <button id="keyboardHelp">اختصارات لوحة المفاتيح</button></div>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="icon-btn modal-close" id="closeModal" aria-label="إغلاق">×</button>
+      <div class="modal-symbol">✳</div>
+      <h2 id="modalTitle">Lezo-AI</h2>
+      <p id="modalText">هذه واجهة تجريبية. لم يتم توصيل نموذج ذكاء اصطناعي بعد.</p>
+      <button class="primary-btn" id="modalOk">تمام</button>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
